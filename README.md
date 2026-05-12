@@ -33,7 +33,8 @@ Araç, dışarıdan hiçbir kütüphane bağımlılığı gerektirmez. Standart 
 
 ## 🖥️ Arayüz
 
-*(Arayüz ekran görüntüsünü buraya ekleyebilirsiniz: `![Screenshot](ekran_goruntusu_linki.png)`)*
+*(Uygulamanın arayüzünün görüntüsü: <img width="900" height="886" alt="image" src="https://github.com/user-attachments/assets/7d0b83cf-5fc4-4c8c-870e-827cd40803c5" />
+)*
 
 Araç içerisinde sol tarafta sömürülebilirlik metrikleri (Attack Vector, Complexity vb.), sağ tarafta ise etki metrikleri (Confidentiality, Integrity vb.) yer almaktadır. En alt kısımda ise anlık skoru, vektör dizgisini ve kopyalama butonunu bulabilirsiniz.
 
