@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![GUI](https://img.shields.io/badge/GUI-Tkinter-red?style=flat-square)
 
-Sızma testi (Penetration Test) ve zafiyet yönetimi süreçlerinde tespit edilen bulguların **CVSS v3.1 (Common Vulnerability Scoring System)** skorlarını ve vektör dizgilerini hızlıca hesaplamak için tasarlanmış, grafik arayüzlü (GUI) ve tamamen bağımsız çalışan bir Python aracıdır.
+Penetrasyon Testi ve zafiyet yönetimi süreçlerinde tespit edilen bulguların **CVSS v3.1 (Common Vulnerability Scoring System)** skorlarını ve vektör dizgilerini hızlıca hesaplamak için tasarlanmış, grafik arayüzlü (GUI) ve tamamen bağımsız çalışan bir Python aracıdır.
 
 Özellikle siber güvenlik uzmanları ve Red Team üyeleri için tasarlanmış koyu renkli (Dark Mode / Red Team) modern bir temaya sahiptir.
 
