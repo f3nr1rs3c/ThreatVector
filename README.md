@@ -1,4 +1,4 @@
-# ThreatVector - CVSS v3.1 Vector Calculator - Made by Sirius
+# ThreatVector - CVSS v3.1 Vector Calculator
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
