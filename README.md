@@ -21,14 +21,14 @@ Penetrasyon Testi ve zafiyet yönetimi süreçlerinde tespit edilen bulguların 
 
 Araç, dışarıdan hiçbir kütüphane bağımlılığı gerektirmez. Standart bir Python 3 ortamında doğrudan çalıştırılabilir.
 
-1. Depoyu bilgisayarınıza indirin veya `cvss_vektör_calculator.py` dosyasını kopyalayın.
+1. Depoyu bilgisayarınıza indirin veya `ThreatVector.py` dosyasını kopyalayın.
 2. Terminal veya Komut İstemcisi üzerinden dosyanın bulunduğu dizine gidin:
    ```bash
    cd "C:\Path\To\CVSS Vektör"
    ```
 3. Aracı başlatın:
    ```bash
-   python cvss_vektör_calculator.py
+   python ThreatVector.py.py
    ```
 
 ## 🖥️ Arayüz
