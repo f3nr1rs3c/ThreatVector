@@ -28,7 +28,7 @@ Araç, dışarıdan hiçbir kütüphane bağımlılığı gerektirmez. Standart 
    ```
 3. Aracı başlatın:
    ```bash
-   python ThreatVector.py.py
+   python ThreatVector.py
    ```
 
 ## 🖥️ Arayüz
