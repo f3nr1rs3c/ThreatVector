@@ -1,6 +1,6 @@
-import tkinter as tk
+import tkinter as tk # tkinter kütüphanesi tanımlaması.
 from tkinter import ttk
-import math
+import math # math kütüphanesi tanımlaması.
 
 class CVSSCalculator(tk.Tk):
     def __init__(self):
@@ -11,18 +11,18 @@ class CVSSCalculator(tk.Tk):
         self.configure(bg="#121212")
         self.resizable(False, False)
 
-        # Windows'da bulanıklığı önlemek için DPI farkındalığı
+        # Windows'da bulanıklığı önlemek için DPI farkındalığı.
         try:
             from ctypes import windll
             windll.shcore.SetProcessDpiAwareness(1)
         except Exception:
             pass
 
-        # Stil Konfigürasyonu
+        # Stil Konfigürasyonu.
         style = ttk.Style(self)
         style.theme_use('clam')
         
-        # Renkler
+        # Renkler.
         bg_color = "#121212"
         panel_color = "#1e1e1e"
         text_color = "#ffffff"
@@ -42,7 +42,7 @@ class CVSSCalculator(tk.Tk):
                   indicatorcolor=[('selected', accent_color)],
                   background=[('active', panel_color)])
 
-        # CVSS 3.1 Metrics and Translations
+        # CVSS 3.1 Metrics and Translations.
         self.metrics = {
             'AV': {'name': 'Attack Vector (Saldırı Vektörü)', 'options': [('Network (Ağ)', 'N'), ('Adjacent (Bitişik)', 'A'), ('Local (Yerel)', 'L'), ('Physical (Fiziksel)', 'P')]},
             'AC': {'name': 'Attack Complexity (Karmaşıklık)', 'options': [('Low (Düşük)', 'L'), ('High (Yüksek)', 'H')]},
@@ -67,7 +67,7 @@ class CVSSCalculator(tk.Tk):
             'A': {'N': 0.0, 'L': 0.22, 'H': 0.56}
         }
 
-        # Değişkenler
+        # Değişkenler.
         self.vars = {}
         for m in self.metrics:
             self.vars[m] = tk.StringVar(value=self.metrics[m]['options'][0][1])
@@ -77,30 +77,30 @@ class CVSSCalculator(tk.Tk):
         self.calculate_score()
 
     def create_widgets(self):
-        # Başlık
+        # Başlık.
         header = ttk.Label(self, text="ThreatVector - CVSS v3.1 Vector Calculator", style='Header.TLabel')
         header.pack(pady=(20, 5))
         
         subtitle = ttk.Label(self, text="Made by Sirius", font=('Segoe UI', 10, 'italic'), foreground="#a0a0a0", background="#121212")
         subtitle.pack(pady=(0, 15))
 
-        # Ana İçerik Alanı
+        # Ana İçerik Alanı.
         main_frame = ttk.Frame(self)
         main_frame.pack(fill=tk.BOTH, expand=True, padx=25)
 
-        # Sol Kolon - Sömürülebilirlik Metrikleri
+        # Sol Kolon - Sömürülebilirlik Metrikleri.
         left_frame = ttk.Frame(main_frame)
         left_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(0, 15))
 
         self.create_metric_group(left_frame, ['AV', 'AC', 'PR', 'UI'])
 
-        # Sağ Kolon - Etki Metrikleri & Kapsam
+        # Sağ Kolon - Etki Metrikleri & Kapsam.
         right_frame = ttk.Frame(main_frame)
         right_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=(15, 0))
 
         self.create_metric_group(right_frame, ['S', 'C', 'I', 'A'])
 
-        # Alt Alan - Sonuçlar
+        # Alt Alan - Sonuçlar.
         bottom_frame = ttk.Frame(self, style='Panel.TFrame')
         bottom_frame.pack(fill=tk.X, padx=25, pady=25)
 
@@ -110,7 +110,7 @@ class CVSSCalculator(tk.Tk):
         self.vector_entry = tk.Entry(bottom_frame, font=('Consolas', 14, 'bold'), bg="#121212", fg="#00ffcc", bd=0, justify="center", readonlybackground="#121212", cursor="xterm")
         self.vector_entry.pack(fill=tk.X, padx=50, pady=(0, 15), ipady=8)
 
-        # Butonlar ve Bildirim
+        # Butonlar ve Bildirim.
         btn_frame = tk.Frame(bottom_frame, bg="#1e1e1e")
         btn_frame.pack(pady=(0, 20))
 
@@ -143,7 +143,7 @@ class CVSSCalculator(tk.Tk):
                 rb.grid(row=row, column=col, sticky=tk.W, pady=3)
 
     def roundup(self, val):
-        # CVSS 3.1 standardında belirtilen yuvarlama algoritması
+        # CVSS 3.1 standardında belirtilen yuvarlama algoritması.
         return math.ceil(round(val, 5) * 10) / 10.0
 
     def calculate_score(self, *args):
@@ -179,26 +179,26 @@ class CVSSCalculator(tk.Tk):
             traceback.print_exc()
 
     def update_display(self, score):
-        # Skora göre seviye ve renk belirleme
+        # Skora göre seviye ve renk belirleme.
         if score == 0.0:
             severity = "NONE"
             color = "#a0a0a0"
         elif 0.1 <= score <= 3.9:
             severity = "LOW"
-            color = "#00ffcc" # Düşük için cyan
+            color = "#00ffcc" # Düşük için cyan.
         elif 4.0 <= score <= 6.9:
             severity = "MEDIUM"
-            color = "#ffcc00" # Orta için sarı
+            color = "#ffcc00" # Orta için sarı.
         elif 7.0 <= score <= 8.9:
             severity = "HIGH"
-            color = "#ff6600" # Yüksek için turuncu
+            color = "#ff6600" # Yüksek için turuncu.
         else:
             severity = "CRITICAL"
-            color = "#ff003c" # Kritik için kırmızı (Red Team temasına uygun)
+            color = "#ff003c" # Kritik için kırmızı (Red Team temasına uygun :) ).
 
         self.score_label.config(text=f"{score:.1f} {severity}", foreground=color)
 
-        # Vektör stringini oluşturma
+        # Vektör stringini oluşturma.
         vector = f"CVSS:3.1/AV:{self.vars['AV'].get()}/AC:{self.vars['AC'].get()}/PR:{self.vars['PR'].get()}/UI:{self.vars['UI'].get()}/S:{self.vars['S'].get()}/C:{self.vars['C'].get()}/I:{self.vars['I'].get()}/A:{self.vars['A'].get()}"
         self.vector_entry.config(state='normal')
         self.vector_entry.delete(0, tk.END)
